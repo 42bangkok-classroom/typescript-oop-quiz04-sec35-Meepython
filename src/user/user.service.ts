@@ -29,7 +29,7 @@ export class UserService {
     } else {
       return fields.reduce((acc, field) => {
         if (field in user) {
-          acc[field] = user[field];
+          acc[field] = user[field as keyof IUser];
         }
         return acc;
       }, {} as Partial<IUser>);
